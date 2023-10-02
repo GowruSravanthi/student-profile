@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        body{
+    color:rgb(245, 242, 242);
+    background-image: url(pic\ \(5\).jpeg);
+    background-size: cover;
+    
+}
+form{
+    border:2px solid rgb(251, 249, 249);
+    background-color: rgb(15, 14, 14);
+    padding: 30px 50px;
+    margin: 100px 20px;
+    width: 200px;
+    text-align: left;
+}
+button{
+    background-color: rgba(35, 130, 225, 0.875);
+    border: 1px solid white;
+    padding: 5px;
+    width: 70px;
+}
+    </style>
+</head>
+<body>
+    <center>
+    <form id="studentProfileForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required><br><br>
+
+        <label for="registrationNumber">Registration Number:</label>
+        <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required><br><br>
+
+        <label for="results">Results:</label>
+        <input type="text" id="results" name="results" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</center>
+    <div id="error-message" style="color: red;"></div>
+
+    <script>
+        const form = document.getElementById('studentProfileForm');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const studentNameInput = document.getElementById('studentName');
+            const registrationNumberInput = document.getElementById('registrationNumber');
+            const branchInput = document.getElementById('branch');
+            const resultsInput = document.getElementById('results');
+
+            const studentName = studentNameInput.value.trim();
+            const registrationNumber = registrationNumberInput.value.trim();
+            const branch = branchInput.value.trim();
+            const results = resultsInput.value.trim();
+
+            if (!studentName || !registrationNumber || !branch || !results) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Validation for studentName, registrationNumber, branch, and results can be added here
+
+            // If the form is valid, proceed to the tech fest registration page
+            window.location.href = 'techfest_registration.html';
+        });
+    </script>
+</body>
+</html>
